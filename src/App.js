@@ -1,24 +1,24 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
+import Misery from './Components/Misery'
+import bgVideo from './miserable.mp4'
 
 function App() {
+
+  const [state, setState]=useState(false)
+
   return (
+    
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+      <button onClick={()=>setState(true)}>Clique pour recevoir ta note de TPA</button>
+
+
+    {state === true && (
+      <Misery />
+    )}
     </div>
+
   );
 }
 
